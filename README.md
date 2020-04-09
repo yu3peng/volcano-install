@@ -77,5 +77,5 @@ service/mxnet-job    ClusterIP   None         <none>        1/TCP     13s
 
 查看状态
 ```
-describe job.batch.volcano.sh mxnet-job
+kubectl describe job.batch.volcano.sh mxnet-job
 ```
