@@ -54,13 +54,13 @@ job.batch/volcano-trial-admission-init   1/1           17s        42s
 ```
 
 ## 6. 利用 MXNet 测试
+运行 MXNet 业务
 ```
 cd example/integrations/mxnet/train/
 docker build -t volcanosh/mxnet-train-mnist-cpu:v1 .
 kubectl apply -f train-mnist-cpu.yaml
 ```
 
-效果如下：
 ```
 $ kubectl get all
 NAME                        READY   STATUS    RESTARTS   AGE
@@ -73,4 +73,9 @@ pod/mxnet-job-worker-1      1/1     Running   0          11s
 NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   16m
 service/mxnet-job    ClusterIP   None         <none>        1/TCP     13s
+```
+
+查看状态
+```
+describe job.batch.volcano.sh mxnet-job
 ```
